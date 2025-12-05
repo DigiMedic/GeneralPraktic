@@ -1,6 +1,7 @@
 {
-  "name": "foomedical",
-  "version": "5.0.6",
+  "name": "generalpraktic",
+  "version": "1.0.0",
+  "description": "Webová prezentace pro lékařskou praxi General Praktic s.r.o.",
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",

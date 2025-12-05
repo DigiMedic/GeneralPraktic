@@ -1,95 +1,133 @@
-<h1 align="center">Foo Medical</h1>
-<p align="center">A free and open-source healthcare webapp from the Medplum team.</p>
+<h1 align="center">General Praktic</h1>
+<p align="center">Webová prezentace pro lékařskou praxi MUDr. Ruth Gratclové</p>
 <p align="center">
-  <a href="https://github.com/medplum/foomedical/actions">
-    <img src="https://github.com/medplum/foomedical/actions/workflows/build.yml/badge.svg" />
-  </a>
-  <a href="https://github.com/medplum/foomedical/blob/main/LICENSE.txt">
+  <a href="https://github.com/DigiMedic/GeneralPraktic/blob/main/LICENSE.txt">
     <img src="https://img.shields.io/badge/license-Apache-blue.svg" />
-  </a>
-  <a href="https://sonarcloud.io/project/overview?id=medplum_foomedical">
-    <img src="https://sonarcloud.io/api/project_badges/measure?project=medplum_foomedical&metric=alert_status&token=3760929adde88ce7da87782be8d811f8b5cec0f4" />
   </a>
 </p>
 
-![Foo Medical Screenshot](screenshot.png)
+### O projektu
 
-### What is Foo Medical?
+Moderní webová aplikace pro lékařskou praxi **General Praktic s.r.o.** v Brně a Těšanech. Web poskytuje pacientům snadný přístup k informacím o ordinacích, ordinačních hodinách, poskytovaných službách a možnost online objednání.
 
-[Foo Medical](https://foomedical.com/) is a **ready to use medical practice sample app** that's open source. It's meant for developers to clone, customize and run.
+### Funkce
 
-### Features
+- **Informační stránky**
+  - Hlavní stránka s aktuálními oznámeními
+  - Detailní ordinační hodiny pro obě ordinace (Brno Jugoslávská, Těšany)
+  - Přehled zaměření a poskytovaných služeb
+  - Ceník lékařských výkonů nehrazených pojišťovnou
 
-- Completely free and open-source
-- Secure and compliant [Medplum](https://www.medplum.com) backend, which is also open source
-- Patient registration and authentication
-- Health records
-  - Lab results
-  - Medications
-  - Vaccines
-  - Vitals
-- Patient-provider messaging
-- Care plans
-- Patient scheduling
-- All data represented in [FHIR](https://hl7.org/FHIR/)
+- **Kontakt a navigace**
+  - Kontaktní formulář
+  - Interaktivní mapa s lokací ordinace
+  - Kompletní kontaktní informace
 
-Foo Medical is designed to be forked and customized for your business' needs. Register on [foomedical.com](https://foomedical.com/) to see it in action.
+- **Online objednání**
+  - Integrace s rezervačním systémem
+  - Rychlý přístup k objednání z jakékoliv stránky
 
-### Getting Started
+- **Responzivní design**
+  - Optimalizováno pro desktop, tablet i mobilní zařízení
+  - Moderní a čistý design odpovídající lékařské praxi
 
-First, [fork](https://github.com/medplum/foomedical/fork) and clone the repo.
+### Technologie
 
-Next, install the app from your terminal
+- **React 19** s TypeScript
+- **Vite** pro rychlý vývoj a build
+- **Mantine UI** - moderní React komponentová knihovna
+- **React Router 7** pro navigaci
+- **CSS Modules** pro stylování
 
+### Instalace a spuštění
+
+1. **Naklonujte repozitář**
+```bash
+git clone https://github.com/DigiMedic/GeneralPraktic.git
+cd GeneralPraktic
+```
+
+2. **Nainstalujte závislosti**
 ```bash
 npm install
 ```
 
-Then, run the app!
-
+3. **Spusťte vývojový server**
 ```bash
 npm run dev
 ```
 
-This app should run on `http://localhost:3000/`
+Aplikace běží na `http://localhost:5173/`
 
-Log into the app on localhost using the same credentials you created on [foomedical.com](https://foomedical.com/) and you are ready to start customizing.
+### Build pro produkci
 
-### Deploying your app
+```bash
+npm run build
+```
 
-To get started deploying your app we recommend making an account on [Vercel](https://vercel.com/), free accounts are available.
+Build vytvoří optimalizované soubory v adresáři `dist/`.
 
-You can deploy this application by [clicking here](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fmedplum%2Ffoomedical&showOptionalTeamCreation=false).
+### Testování
 
-### Account Setup
+```bash
+npm test
+```
 
-By default, your locally running Foo Medical app is pointing to the hosted Medplum service. Foo Medical registers signups to a test project.
+### Linting
 
-To send patients to your own organization you will need to [register a new Project on Medplum](https://www.medplum.com/docs/tutorials/register) and configure your environment variables to point to your own project (see [config.ts](https://github.com/medplum/foomedical/blob/main/src/config.ts) for an example).
+```bash
+npm run lint
+```
 
-If you are using the Medplum Hosted service, you can login to your Medplum Instance and add the following identifiers to your [Project Site Settings](https://app.medplum.com/admin/sites)
+### Struktura projektu
 
-- Google Client Id
-- Google Client Secret
-- Recaptcha Site Key
-- Recaptcha Secret Key
+```
+GeneralPraktic/
+├── src/
+│   ├── components/      # Sdílené komponenty (Header, Footer)
+│   ├── pages/
+│   │   └── gp/         # Stránky General Praktic
+│   │       ├── HomePage.tsx
+│   │       ├── OrdinacniHodiny.tsx
+│   │       ├── ZamereniCenik.tsx
+│   │       ├── Kontakt.tsx
+│   │       └── Objednani.tsx
+│   ├── App.tsx         # Hlavní komponenta aplikace
+│   ├── Router.tsx      # Konfigurace routování
+│   └── main.tsx        # Vstupní bod aplikace
+├── docs/               # Dokumentace a specifikace
+├── index.html          # HTML šablona
+└── package.json
+```
 
-Contact the medplum team ([support@medplum.com](mailto:support@medplum.com) or [Discord](https://discord.gg/medplum])) with any questions.
+### Deployment
 
-### Data Setup
+Aplikace je připravena pro deployment na platformách jako:
+- [Vercel](https://vercel.com/)
+- [Netlify](https://www.netlify.com/)
+- [GitHub Pages](https://pages.github.com/)
 
-When you log into Foo Medical a set of sample FHIR records is created on your behalf. The ability to run automations is part of the Medplum platform using a framework called [Bots](https://www.medplum.com/docs/bots). For reference, Bot that created the records in Foo Medical can be found [here](https://github.com/medplum/medplum-demo-bots/blob/main/src/sample-account-setup.ts).
+### Kontakt
 
-### Compliance
+**General Praktic s.r.o.**
+MUDr. Ruth Gratclová
 
-Medplum backend is HIPAA compliant and SOC 2 certified. Getting an account set up requires registering on [medplum.com](https://www.medplum.com/). Feel free to ask us questions in real time on our [Discord Server](https://discord.gg/medplum).
+**Ordinace Brno:**
+Jugoslávská 13, Brno
+Tel: +420 545 241 051
 
-### About Medplum
+**Ordinace Těšany:**
+Tel: +420 733 584 749
 
-[Medplum](https://www.medplum.com/) is an open-source, API-first EHR. Medplum makes it easy to build healthcare apps quickly with less code.
+Email: generalpraktic@seznam.cz
+Web: https://www.generalpraktic.cz
 
-Medplum supports self-hosting and provides a [hosted service](https://app.medplum.com/). [Foo Medical](https://foomedical.com/) uses the hosted service as a backend.
+### License
 
-- Read our [documentation](https://www.medplum.com/docs/)
-- Browse our [React component library](https://storybook.medplum.com/)
-- Join our [Discord](https://discord.gg/medplum)
+Apache 2.0 - see [LICENSE.txt](LICENSE.txt)
+
+---
+
+### Původní projekt
+
+Tento projekt je založen na [Foo Medical](https://github.com/medplum/foomedical) boilerplate od Medplum týmu, který byl přizpůsoben pro potřeby lékařské praxe General Praktic.
