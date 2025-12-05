@@ -1,0 +1,44 @@
+.contactInfo {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+}
+
+.companyName {
+  color: white;
+}
+
+.contactLink {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.contactLink:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.submitButton {
+  background-color: #4a90e2;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #357abd;
+}
+
+.successMessage {
+  background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+  color: white;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mapContainer {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

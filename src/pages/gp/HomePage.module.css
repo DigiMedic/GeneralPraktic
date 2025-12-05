@@ -1,0 +1,46 @@
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.announcementBox {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border: 2px solid #4a90e2;
+}
+
+.announcementTitle {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.emailLink {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.emailLink:hover {
+  color: #357abd;
+  text-decoration: underline;
+}
+
+.primaryButton {
+  background-color: #4a90e2;
+  font-size: 1.2rem;
+  padding: 1.5rem 3rem;
+}
+
+.primaryButton:hover {
+  background-color: #357abd;
+}
+
+.secondaryButton {
+  font-size: 1.2rem;
+  padding: 1.5rem 3rem;
+  border-color: #4a90e2;
+  color: #4a90e2;
+}
+
+.secondaryButton:hover {
+  background-color: #f0f7ff;
+}
