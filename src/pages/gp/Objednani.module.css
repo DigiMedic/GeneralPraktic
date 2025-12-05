@@ -1,0 +1,71 @@
+.infoBox {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+  border-left: 5px solid #4a90e2;
+}
+
+.serviceCard {
+  background: white;
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer {
+  min-width: 250px;
+}
+
+.placeholderImage {
+  width: 250px;
+  height: 167px;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.bookButton {
+  background-color: #4a90e2;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+.bookButton:hover {
+  background-color: #357abd;
+}
+
+.alternativeContact {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.contactLink {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: #357abd;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .serviceCard > div {
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .placeholderImage {
+    width: 100%;
+  }
+}
