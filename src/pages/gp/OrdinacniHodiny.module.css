@@ -1,24 +1,132 @@
+/* Page wrapper with animated background */
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.gridBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(to right, rgba(74, 144, 226, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(74, 144, 226, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+.pageTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+  margin-bottom: 3rem;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 .officeCard {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  border-left: 5px solid #4a90e2;
+  position: relative;
+  background: white;
+  border: 1px solid rgba(74, 144, 226, 0.15);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out backwards;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: rgba(74, 144, 226, 0.3);
+    box-shadow:
+      0 20px 40px rgba(74, 144, 226, 0.15),
+      0 0 0 1px rgba(74, 144, 226, 0.1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.officeCard:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
 .officeTitle {
   color: #2c3e50;
-  border-bottom: 2px solid #e9ecef;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
   padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
 .dayRow {
-  padding: 1rem;
-  border-radius: 8px;
-  background: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: rgba(74, 144, 226, 0.03);
+  border: 1px solid rgba(74, 144, 226, 0.1);
   align-items: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: white;
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.1);
+  }
 }
 
 .dayLabel {
   min-width: 80px;
+
+  h3 {
+    font-weight: 600;
+    color: #667eea;
+    font-size: 1.25rem;
+  }
 }
 
 .timeInfo {
@@ -27,14 +135,49 @@
 }
 
 .contactHighlight {
-  color: #4a90e2;
-  padding: 1rem;
-  background: #f0f7ff;
-  border-radius: 8px;
+  position: relative;
+  color: white;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
   text-align: center;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmerSlide 2s infinite;
+  }
+}
+
+@keyframes shimmerSlide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.infoText {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
 }
 
 @media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2rem;
+  }
+
   .dayRow {
     flex-direction: column;
     align-items: flex-start;
@@ -43,5 +186,13 @@
 
   .timeInfo {
     text-align: left;
+  }
+
+  .officeCard:hover {
+    transform: translateY(-4px);
+  }
+
+  .dayRow:hover {
+    transform: translateX(4px);
   }
 }

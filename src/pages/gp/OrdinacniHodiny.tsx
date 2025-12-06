@@ -1,13 +1,15 @@
-import { Container, Title, Text, Stack, Paper, Group } from '@mantine/core';
+import { Container, Title, Text, Stack, Paper, Group, Box } from '@mantine/core';
 import type { JSX } from 'react';
 import classes from './OrdinacniHodiny.module.css';
 
 export function OrdinacniHodiny(): JSX.Element {
   return (
-    <Container size="lg" py="xl">
-      <Title order={1} ta="center" mb="xl">
-        Ordinační hodiny
-      </Title>
+    <Box className={classes.wrapper}>
+      <div className={classes.gridBackground} />
+      <Container size="lg" py={80} style={{ position: 'relative', zIndex: 1 }}>
+        <Title order={1} ta="center" className={classes.pageTitle}>
+          Ordinační hodiny
+        </Title>
 
       <Stack gap="xl">
         {/* Jugoslávská */}
@@ -108,6 +110,7 @@ export function OrdinacniHodiny(): JSX.Element {
           </Text>
         </Paper>
       </Stack>
-    </Container>
+      </Container>
+    </Box>
   );
 }

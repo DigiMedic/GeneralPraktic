@@ -1,4 +1,4 @@
-import { Container, Title, Text, Stack, Paper, Group, TextInput, Textarea, Button } from '@mantine/core';
+import { Container, Title, Text, Stack, Paper, Group, TextInput, Textarea, Button, Box } from '@mantine/core';
 import { useState } from 'react';
 import type { JSX } from 'react';
 import classes from './Kontakt.module.css';
@@ -22,14 +22,16 @@ export function Kontakt(): JSX.Element {
   };
 
   return (
-    <Container size="lg" py="xl">
-      <Title order={1} ta="center" mb="xl">
-        Kontakt
-      </Title>
+    <Box className={classes.wrapper}>
+      <div className={classes.gridBackground} />
+      <Container size="lg" py={80} style={{ position: 'relative', zIndex: 1 }}>
+        <Title order={1} ta="center" className={classes.pageTitle}>
+          Kontakt
+        </Title>
 
-      <Stack gap="xl">
-        {/* Kontaktní informace */}
-        <Paper shadow="md" p="xl" radius="md" className={classes.contactInfo}>
+        <Stack gap="xl">
+          {/* Kontaktní informace */}
+          <Paper shadow="md" p="xl" radius="md" className={classes.contactInfo} style={{ position: 'relative', zIndex: 1 }}>
           <Stack gap="md">
             <div>
               <Text size="xl" fw={700} className={classes.companyName}>
@@ -67,7 +69,7 @@ export function Kontakt(): JSX.Element {
         </Paper>
 
         {/* Kontaktní formulář */}
-        <Paper shadow="md" p="xl" radius="md">
+        <Paper shadow="md" p="xl" radius="md" className={classes.formCard} style={{ position: 'relative' }}>
           <Title order={3} mb="lg">Kontaktujte nás</Title>
 
           {submitted ? (
@@ -114,7 +116,7 @@ export function Kontakt(): JSX.Element {
         </Paper>
 
         {/* Mapa */}
-        <Paper shadow="md" p="xl" radius="md">
+        <Paper shadow="md" p="xl" radius="md" className={classes.mapCard} style={{ position: 'relative' }}>
           <Title order={3} mb="lg">Ordinace</Title>
           <div className={classes.mapContainer}>
             <iframe
@@ -142,6 +144,7 @@ export function Kontakt(): JSX.Element {
           </Group>
         </Paper>
       </Stack>
-    </Container>
+      </Container>
+    </Box>
   );
 }

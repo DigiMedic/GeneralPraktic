@@ -1,23 +1,25 @@
-import { Container, Title, Text, Stack, Paper, Button, Group } from '@mantine/core';
+import { Container, Title, Text, Stack, Paper, Button, Group, Box } from '@mantine/core';
 import type { JSX } from 'react';
 import classes from './Objednani.module.css';
 
 export function Objednani(): JSX.Element {
   return (
-    <Container size="lg" py="xl">
-      <Title order={1} ta="center" mb="xl">
-        Objednání
-      </Title>
+    <Box className={classes.wrapper}>
+      <div className={classes.gridBackground} />
+      <Container size="lg" py={80} style={{ position: 'relative', zIndex: 1 }}>
+        <Title order={1} ta="center" className={classes.pageTitle}>
+          Objednání
+        </Title>
 
-      <Stack gap="xl">
-        <Paper shadow="md" p="xl" radius="md" ta="center" className={classes.infoBox}>
+        <Stack gap="xl">
+          <Paper shadow="md" p="xl" radius="md" ta="center" className={classes.infoBox} style={{ position: 'relative' }}>
           <Text size="lg" mb="md">
             Pro objednání k lékařské prohlídce použijte prosím náš online rezervační systém.
           </Text>
         </Paper>
 
         {/* Lékařská prohlídka */}
-        <Paper shadow="md" p="xl" radius="md" className={classes.serviceCard}>
+        <Paper shadow="md" p="xl" radius="md" className={classes.serviceCard} style={{ position: 'relative' }}>
           <Group align="flex-start" gap="xl">
             <div className={classes.imageContainer}>
               <div className={classes.placeholderImage}>
@@ -52,7 +54,7 @@ export function Objednani(): JSX.Element {
         </Paper>
 
         {/* Alternativní kontakt */}
-        <Paper shadow="md" p="xl" radius="md" className={classes.alternativeContact}>
+        <Paper shadow="md" p="xl" radius="md" className={classes.alternativeContact} style={{ position: 'relative' }}>
           <Title order={3} mb="md" ta="center">
             Jiný způsob objednání
           </Title>
@@ -81,6 +83,7 @@ export function Objednani(): JSX.Element {
           </Stack>
         </Paper>
       </Stack>
-    </Container>
+      </Container>
+    </Box>
   );
 }

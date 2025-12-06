@@ -1,11 +1,13 @@
-import { Container, Title, Text, Stack, Paper, List } from '@mantine/core';
+import { Container, Title, Text, Stack, Paper, List, Box } from '@mantine/core';
 import type { JSX } from 'react';
 import classes from './ZamereniCenik.module.css';
 
 export function ZamereniCenik(): JSX.Element {
   return (
-    <Container size="lg" py="xl">
-      <Stack gap="xl">
+    <Box className={classes.wrapper}>
+      <div className={classes.gridBackground} />
+      <Container size="lg" py={80} style={{ position: 'relative', zIndex: 1 }}>
+        <Stack gap="xl">
         {/* Zaměření */}
         <Paper shadow="md" p="xl" radius="md" className={classes.section}>
           <Title order={1} mb="xl" className={classes.sectionTitle}>
@@ -114,6 +116,7 @@ export function ZamereniCenik(): JSX.Element {
           </Stack>
         </Paper>
       </Stack>
-    </Container>
+      </Container>
+    </Box>
   );
 }
