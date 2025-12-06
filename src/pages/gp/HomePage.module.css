@@ -1,46 +1,90 @@
-.container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.announcementBox {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border: 2px solid #4a90e2;
-}
-
-.announcementTitle {
+/* Announcements */
+.announcements {
+  background-color: var(--mantine-primary-color-light);
+  padding: var(--mantine-spacing-xs);
   text-align: center;
-  color: #2c3e50;
+  font-size: var(--mantine-font-size-sm);
 }
 
-.emailLink {
-  color: #4a90e2;
-  text-decoration: none;
-  transition: color 0.3s ease;
+/* Hero */
+.hero {
+  position: relative;
+  background-image: radial-gradient(640px at 50% 50%, rgba(74, 144, 226, 0.15), transparent);
+  background-color: #f8f9fa;
 }
 
-.emailLink:hover {
-  color: #357abd;
-  text-decoration: underline;
+.heroContainer {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 4.5rem;
+  padding-bottom: 6rem;
+  z-index: 1;
+  position: relative;
+
+  @mixin smaller-than $mantine-breakpoint-sm {
+    min-height: 300px;
+    padding-top: 3rem;
+    padding-bottom: 4.5rem;
+  }
 }
 
-.primaryButton {
-  background-color: #4a90e2;
-  font-size: 1.2rem;
-  padding: 1.5rem 3rem;
+.heroTitle {
+  color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  @mixin smaller-than $mantine-breakpoint-sm {
+    font-size: 36px;
+  }
+
+  @mixin smaller-than $mantine-breakpoint-xs {
+    font-size: 28px;
+  }
 }
 
-.primaryButton:hover {
-  background-color: #357abd;
+.heroHighlight {
+  color: var(--mantine-primary-color-filled);
 }
 
-.secondaryButton {
-  font-size: 1.2rem;
-  padding: 1.5rem 3rem;
-  border-color: #4a90e2;
-  color: #4a90e2;
+.heroSubtitle {
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-2));
+  font-size: var(--mantine-font-size-xl);
+  margin-top: var(--mantine-spacing-md);
+
+  @mixin smaller-than $mantine-breakpoint-sm {
+    font-size: var(--mantine-font-size-lg);
+  }
 }
 
-.secondaryButton:hover {
-  background-color: #f0f7ff;
+.heroButton {
+  background-color: var(--mantine-primary-color-filled);
+
+  @mixin smaller-than $mantine-breakpoint-sm {
+    font-size: var(--mantine-font-size-md);
+  }
+}
+
+/* Cards */
+.card {
+  border: 1px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+  transition: transform 200ms ease, box-shadow 200ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.officeCard {
+  border: 1px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.contactCard {
+  border: 1px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+  background: linear-gradient(135deg, var(--mantine-primary-color-light) 0%, #ffffff 100%);
 }
