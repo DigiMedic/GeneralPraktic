@@ -21,25 +21,21 @@ const features = [
     icon: IconCalendar,
     title: 'Online objednání',
     description: 'Objednejte se k lékaři rychle a pohodlně přes náš rezervační systém',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   },
   {
     icon: IconClock,
     title: 'Flexibilní ordinační hodiny',
     description: 'Brno i Těšany s ranními i odpoledními hodinami',
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
   },
   {
     icon: IconStethoscope,
     title: 'Komplexní péče',
     description: 'Preventivní prohlídky, očkování, závodní lékařská péče',
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
   },
   {
     icon: IconMapPin,
     title: 'Dvě ordinace',
     description: 'Brno - Jugoslávská 13 a Těšany pro vaše pohodlí',
-    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
   },
 ];
 
@@ -134,18 +130,15 @@ export function GPHomePage(): JSX.Element {
                   className={classes.featureCard}
                   p="xl"
                   radius="lg"
-                  style={{
-                    background: feature.gradient,
-                  }}
                 >
                   <Stack gap="md" h="100%">
                     <Box className={classes.iconWrapper}>
-                      <feature.icon size={32} stroke={2} color="white" />
+                      <feature.icon size={32} stroke={2} color="#324158" />
                     </Box>
-                    <Title order={3} c="white" size="h4">
+                    <Title order={3} c="#324158" size="h4">
                       {feature.title}
                     </Title>
-                    <Text c="white" size="sm" opacity={0.9}>
+                    <Text c="dimmed" size="sm">
                       {feature.description}
                     </Text>
                   </Stack>
